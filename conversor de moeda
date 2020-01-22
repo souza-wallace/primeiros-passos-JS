@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Conversão de moedas</title>
+	<style>
+		body{
+			background-image: url(img.jpg);
+
+		}
+		#caixa{
+			position: absolute;
+			top: 100px;
+			left: 470px;
+			width: 400px;
+			height: 200px;
+			z-index: 1;
+			background-color: #dcdcdc;
+			opacity: 0.93;
+			border-radius: 20px;
+			padding: 10px;
+			margin: 10px;
+		}
+		#header{
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 40px;
+			z-index: 1;
+			background-color: #fff;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="header"> <b>Conversão de moedas</b> </div><hr>
+	<div id="caixa">
+		<label><b>Quanto Deseja converter $:</b> </label> &nbsp;
+		<input type="text" placeholder="valor aqui..." id="valor"><hr>
+		
+	<br><label><b>Para: </b> </label>
+		 <input type="radio" name="Pmoeda" value="1" id="dolar" checked=""> Dollár
+		 <input type="radio" name="Pmoeda" value="2" id="euro" > Euro
+		 <input type="radio" name="Pmoeda" value="3" id="libra"> libra 
+		<hr>
+		<button onclick="calcular()">calcular</button>
+		<p><b>Resultado: </b></p> <p id="res"></p>
+	</div>
+	<script>
+			function calcular(){
+				var valor = parseFloat(document.getElementById('valor').value )
+				var op1 =  document.getElementById('dolar').checked
+				var op2 = document.getElementById('euro').checked
+				var op3 = document.getElementById('libra').checked
+				var res = document.getElementById('res')
+				var newval 
+				if (op1 == false && op2 == false && op3 == false ){
+					alert('Selecione uma Opção')
+				}
+				else if (op1 == true){
+					newval = valor/ 4.2
+					res.innerHTML = 'NOVO VALOR: ' + '<b> '+newval.toFixed(2) + ' </b>' + 'DÓLLAR'
+				}
+				else if (op2 == true){
+					newval = valor/4.66
+					res.innerHTML = 'NOVO VALOR: ' + '<b> '+newval.toFixed(2) + ' </b>' + 'EUROS'
+				}
+				else if (op3 == true){
+					newval = valor/ 5.48
+					res.innerHTML = 'NOVO VALOR: ' + '<b> '+newval.toFixed(2) + ' </b>' + 'LIBRAS'
+				}
+							var valor = document.getElementById('valor').value =""
+	
+			}
+</script>
+</body>
+</html>
